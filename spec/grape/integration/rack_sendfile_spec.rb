@@ -30,6 +30,7 @@ describe Rack::Sendfile do
     end
 
     it 'contains Sendfile headers' do
+      skip 'Rack::Sendfile behavior changed in Rack 3' if Rack.release >= '3.0'
       headers = subject[1]
       expect(headers).to include('X-Accel-Redirect')
     end

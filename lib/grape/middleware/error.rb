@@ -71,6 +71,7 @@ module Grape
       end
 
       def rack_response(message, status = options[:default_status], headers = { Grape::Http::Headers::CONTENT_TYPE => content_type })
+        message = message.to_s unless message.is_a?(String)
         message = ERB::Util.html_escape(message) if headers[Grape::Http::Headers::CONTENT_TYPE] == TEXT_HTML
         Rack::Response.new([message], Rack::Utils.status_code(status), headers)
       end

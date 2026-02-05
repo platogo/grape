@@ -404,12 +404,12 @@ describe Grape::Endpoint do
       else
         it 'converts XML bodies to params' do
           post '/request_body', '<user>Bobby T.</user>', 'CONTENT_TYPE' => 'application/xml'
-          expect(last_response.body).to eq('{"__content__"=>"Bobby T."}')
+          expect(last_response.body).to eq('{"__content__" => "Bobby T."}')
         end
 
         it 'converts XML bodies to params' do
           put '/request_body', '<user>Bobby T.</user>', 'CONTENT_TYPE' => 'application/xml'
-          expect(last_response.body).to eq('{"__content__"=>"Bobby T."}')
+          expect(last_response.body).to eq('{"__content__" => "Bobby T."}')
         end
       end
 

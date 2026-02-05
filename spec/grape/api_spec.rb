@@ -1248,6 +1248,8 @@ describe Grape::API do
     end
 
     it 'streams the content of the file with stream' do
+      skip 'Rack::Chunked removed in Rack 3' if Rack.release >= '3.0'
+
       test_stream = Enumerator.new do |blk|
         blk.yield 'This is some'
         blk.yield ' file content'
@@ -2716,7 +2718,7 @@ describe Grape::API do
           end
           put '/yaml', '<tag type="symbol">a123</tag>', 'CONTENT_TYPE' => 'application/xml'
           expect(last_response.status).to eq(200)
-          expect(last_response.body).to eql '{"type"=>"symbol", "__content__"=>"a123"}'
+          expect(last_response.body).to eq('{"type" => "symbol", "__content__" => "a123"}')
         end
       end
     end
