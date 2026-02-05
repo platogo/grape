@@ -48,3 +48,10 @@ tags
 
 ## PROJECT::SPECIFIC
 .project
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
