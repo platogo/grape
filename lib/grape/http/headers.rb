@@ -24,7 +24,7 @@ module Grape
       SUPPORTED_METHODS_WITHOUT_OPTIONS = Grape::Util::LazyObject.new { [GET, POST, PUT, PATCH, DELETE, HEAD].freeze }
 
       HTTP_ACCEPT_VERSION    = 'HTTP_ACCEPT_VERSION'
-      X_CASCADE              = 'X-Cascade'
+      X_CASCADE              = 'x-cascade'
       HTTP_TRANSFER_ENCODING = 'HTTP_TRANSFER_ENCODING'
       HTTP_ACCEPT            = 'HTTP_ACCEPT'
 
